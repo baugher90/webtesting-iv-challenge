@@ -14,7 +14,9 @@ async function insert(goats) {
 }
 
 async function update(id, changes) {
-  return null;
+    return db('goats')
+    .where({ id })
+    .update(changes, '*');
 }
 
 function remove(id) {

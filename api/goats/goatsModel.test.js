@@ -9,7 +9,7 @@ describe("goatsModel", () => {
     beforeEach(async () => {
       await db("goats").truncate();
     });
-    it("should insert the provided goatss into the db", async () => {
+    it("should insert the provided goats into the db", async () => {
         await Goats.insert({ name: "Alfrodo Bagget"});
         await Goats.insert({ name: "Sammwich Hamgee"});
 
@@ -22,6 +22,12 @@ describe("goatsModel", () => {
     beforeEach(async () => {
       await db("goats").truncate();
     });
+    it("should update the provided goat in the db", async () => {
+        let goat = await Goats.insert({ name: "Brandy Marinade"})
+        expect(goat.name).toBe('Brandy Marinade')
+        let updatedGoat = await Goats.update(goat.id,{ name: "Brandy Wine"})
+        expect(updatedGoat.name).toBe('Brandy Wine')
+    })
   });
 
 //   describe("remove()", () => {
