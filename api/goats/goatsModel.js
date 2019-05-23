@@ -20,13 +20,18 @@ async function update(id, changes) {
 }
 
 function remove(id) {
-    return null;
+    return db('goats')
+    .where({ id })
+    .del();
 }
 
 function getAll() {
-    return null;
+    return db('goats');
 }
 
 function findById(id) {
-    return null;
+    return db('goats')
+    .select('id', 'name')
+    .where({ id })
+    .first();
 }
