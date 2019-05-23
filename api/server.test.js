@@ -7,13 +7,16 @@ describe("server.js", () => {
   });
   describe("endpoints", () => {
     describe("GET /", () => {
-        //test for res.status
-        it("should return 200 OK", async () => {
+      //test for res.status
+      it("should return 200 OK", async () => {
         const res = await request(server).get("/");
         expect(res.status).toBe(200);
-        });
-        xit("should return JSON", async () => {});
-        xit(`should return { message: "Welcome yo" }`, async () => {});
+      });
+      it("should return JSON", async () => {
+        const res = await request(server).get("/");
+        expect(res.type).toBe("application/json");
+      });
+      xit(`should return { message: "Welcome yo" }`, async () => {});
     });
-});
+  });
 });
