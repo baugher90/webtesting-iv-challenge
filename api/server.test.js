@@ -16,7 +16,10 @@ describe("server.js", () => {
         const res = await request(server).get("/");
         expect(res.type).toBe("application/json");
       });
-      xit(`should return { message: "Welcome yo" }`, async () => {});
+      it(`should return { message: "Welcome yo" }`, async () => {
+        const res = await request(server).get("/");
+        expect(res.body).toEqual({ message: "Welcome yo" });
+      });
     });
   });
 });
