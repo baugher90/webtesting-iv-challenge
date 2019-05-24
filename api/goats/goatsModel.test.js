@@ -63,5 +63,10 @@ describe("goatsModel", () => {
     beforeEach(async () => {
       await db("goats").truncate();
     });
+    it("should find the goat with the given id", async () => {
+        const goat = await Goats.insert({ name: "Pipin Roni" });
+        const findById = await Goats.findById(goat.id);
+        expect(findById).toEqual(goat);
+    })
   });
 });
